@@ -7,7 +7,7 @@ const Main = (props) => {
   const { data, user } = props;
   useEffect(() => {
     props.getUser();
-    props.getCount();
+    props.getData();
   }, []);
 
   return (
@@ -25,14 +25,14 @@ const Main = (props) => {
 Main.propTypes = {
   data: PropTypes.shape({}),
   user: PropTypes.shape({}),
-  getCount: PropTypes.func,
+  getData: PropTypes.func,
   getUser: PropTypes.func,
 };
 
 Main.defaultProps = {
   data: {},
   user: {},
-  getCount: () => {},
+  getData: () => {},
   getUser: () => {},
 };
 
@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCount: () => { dispatch({ type: FETCH_DATA }); },
+  getData: () => { dispatch({ type: FETCH_DATA }); },
   getUser: () => { dispatch({ type: FETCH_USER }); },
 });
 
