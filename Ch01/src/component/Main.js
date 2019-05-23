@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FETCH_DATA } from '../reducer';
 
-const Counter = (props) => {
+const Main = (props) => {
   const { data } = props;
   useEffect(() => {
-    props.getCount();
+    props.getData();
   }, []);
 
   return (
@@ -16,14 +16,14 @@ const Counter = (props) => {
   );
 };
 
-Counter.propTypes = {
+Main.propTypes = {
   data: PropTypes.shape({}),
-  getCount: PropTypes.func,
+  getData: PropTypes.func,
 };
 
-Counter.defaultProps = {
+Main.defaultProps = {
   data: {},
-  getCount: () => {},
+  getData: () => {},
 };
 
 const mapStateToProps = state => ({
@@ -31,7 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCount: () => { dispatch({ type: FETCH_DATA }); },
+  getData: () => { dispatch({ type: FETCH_DATA }); },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -6,7 +6,6 @@ function* fetchData() {
     () => fetch('https://httpbin.org/get')
       .then(response => response.json()),
   );
-  console.log(data)
   yield put({ type: FETCH_DATA_SUCCESS, payload: { data } });
 }
 
